@@ -1,0 +1,19 @@
+name: Assign Reviewers and Assignees
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  assign-reviewers:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add reviewers and assignees
+        uses: kentaro-m/auto-assign-action@v1
+        with:
+          add-reviewers: false
+          add-assignees: author
+          number-of-reviewers: 0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+

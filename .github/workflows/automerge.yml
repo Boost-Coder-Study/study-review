@@ -1,0 +1,15 @@
+name: Auto Merge
+
+on:
+  schedule:
+    - cron: '0 13 * * 0'
+
+jobs:
+  automerge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Auto merge pull requests
+        uses: pascalgn/automerge-action@v0.16.4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
